@@ -18,7 +18,7 @@ const development = (port, { input, output }, parent) => {
   const { filepath, filename } = helpers.splitPath(output);
 
   // Create entries
-  const entries = helpers.createArray(input, i => {
+  const entries = helpers.createArray([input], i => {
     return path.join(parent, i);
   });
 
@@ -26,7 +26,7 @@ const development = (port, { input, output }, parent) => {
   const entry = [DEV_SERVER + port, SYNTAX_ERROR].concat(entries);
 
   // Create includes for loaders
-  const includes = helpers.createArray(input, i => {
+  const includes = helpers.createArray([input], i => {
 
     const { filepath } = helpers.splitPath(i);
     return path.join(parent, filepath);
@@ -70,7 +70,7 @@ const production = ({ input, output }, parent) => {
   const { filepath, filename } = helpers.splitPath(output);
 
   // Create includes for loaders
-  const includes = helpers.createArray(input, i => {
+  const includes = helpers.createArray([input], i => {
 
     const { filepath } = helpers.splitPath(i);
     return path.join(parent, filepath);
@@ -78,7 +78,7 @@ const production = ({ input, output }, parent) => {
   });
 
   // Setup webpack
-  const settings = options.production({ entry: input, filepath, filename, includes });
+  const settings = options.production({ entry: [input], filepath, filename, includes });
   const compiler = webpack(settings);
 
   compiler.run((error, stats) => {
