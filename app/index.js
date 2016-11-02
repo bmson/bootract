@@ -5,21 +5,23 @@ const path          = require('path');
 
 // Local dependencies
 const socket  = require('./components/socket');
-const symlink = require('./components/symlink');
 const server  = require('./components/server');
 
 // Get parent directory
 const parent = path.dirname(module.parent.filename);
+let port = 3333;
 
 // Exposed API
-exports.socket  = socket;
-exports.symlink = symlink;
+exports.socket = socket;
 
-exports.server = (port, options) => {
+exports.port = (i) => {
+  port = i;
+}
 
-  if (options.main)
-    server.production(port, options, parent);
-  else
-    server.development(port, options, parent);
+exports.production = (options) => {
+  server.production(options, parent);
+}
 
+exports.development = (options) => {
+  server.development(port, options, parent);
 }

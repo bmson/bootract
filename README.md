@@ -14,16 +14,14 @@ Add the following to `package.json`
 // Dependencies
 var reqly = require('reqly-react');
 
+// Set port on localhost
+reqly.port(3333);
+
 // Create webpack server with live-reload
 reqly.server(3333, {
-  input: ["./example/index.jsx", "./src/index.jsx"],
-  output: "./example/bundle.js"
+  input:  "./src/index.jsx",
+  output: "./src/bundle.js"
 });
-
-// Create a symlink to use in your example application
-// Then you can require your app in your ./example/index.jsx such " import myApp from 'my-app' "
-reqly.symlink('./src/', 'my-app');
-
 // Create socket server
 reqly.socket('/', 8080);
 // Read RFC-6455 standard for implementation      
@@ -35,8 +33,8 @@ reqly.socket('/', 8080);
 var reqly = require('reqly-react');
 
 // Compile source code and export
-reqly.server(3333, {
-  input: ["./src/example.jsx"],
-  main: "./dist/bundle.js"
+reqly.server({
+  input:  "./src/example.jsx",
+  output: "./src/bundle.js"
 });
 ```

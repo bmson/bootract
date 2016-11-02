@@ -64,10 +64,10 @@ const development = (port, { input, output }, parent) => {
 };
 
 // Production build
-const production = (port, { input, main }, parent) => {
+const production = ({ input, output }, parent) => {
 
   // split path into filepath and filename
-  const { filepath, filename } = helpers.splitPath(main);
+  const { filepath, filename } = helpers.splitPath(output);
 
   // Create includes for loaders
   const includes = helpers.createArray(input, i => {
