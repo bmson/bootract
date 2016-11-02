@@ -18,10 +18,11 @@ var reqly = require('reqly-react');
 reqly.port(3333);
 
 // Create webpack server with live-reload
-reqly.server(3333, {
+reqly.development({
   input:  "./src/index.jsx",
   output: "./src/bundle.js"
 });
+
 // Create socket server
 reqly.socket('/', 8080);
 // Read RFC-6455 standard for implementation      
@@ -33,7 +34,7 @@ reqly.socket('/', 8080);
 var reqly = require('reqly-react');
 
 // Compile source code and export
-reqly.server({
+reqly.production({
   input:  "./src/example.jsx",
   output: "./src/bundle.js"
 });
