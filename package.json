@@ -1,6 +1,6 @@
 {
   "name": "bootract",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Easy bootstrap for React, ES6 and Webpack hot loader",
   "main": "app/index.js",
   "scripts": {

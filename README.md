@@ -12,29 +12,25 @@ Add the following to `package.json`
 # build development
 ```javascript
 // Dependencies
-var reqly = require('reqly-react');
+var bootract = require('bootract');
 
 // Set port on localhost
-reqly.port(3333);
+bootract.port(3333);
 
 // Create webpack server with live-reload
-reqly.development({
+bootract.development({
   input:  "./src/index.jsx",
   output: "./src/bundle.js"
 });
-
-// Create socket server
-reqly.socket('/', 8080);
-// Read RFC-6455 standard for implementation      
 ```
 
 # build production
 ```javascript
 // Dependencies
-var reqly = require('reqly-react');
+var bootract = require('bootract');
 
 // Compile source code and export
-reqly.production({
+bootract.production({
   input:  "./src/example.jsx",
   output: "./src/bundle.js"
 });
