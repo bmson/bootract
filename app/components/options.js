@@ -26,6 +26,10 @@ const development = ({ entry, filepath, filename, includes }) => ({
         include: includes,
         loaders: ['react-hot', 'babel']
       },{
+        test: /\.json&/,
+        include: includes,
+        loaders: ['json-loader']
+      },{
         test: /\.css$/,
         include: includes,
         loader: 'style-loader!css-loader?modules&importLoaders=1&localIdentName=[local]-[hash:base64:5]'
@@ -59,6 +63,10 @@ const production = ({ entry, filepath, filename, includes }) => ({
         test: /\.jsx$/,
         include: includes,
         loaders: ['babel']
+      },{
+        test: /\.json&/,
+        include: includes,
+        loaders: ['json-loader']
       },{
         test: /\.css$/,
         include: includes,
