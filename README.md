@@ -1,4 +1,4 @@
-# reqly react
+# bootract
 React helper to quickly run a server with Babelify and react hot-loader
 
 Add the following to `package.json`
